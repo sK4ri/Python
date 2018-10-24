@@ -13,5 +13,5 @@ for char in range(len(aList[i])) :
     sList.append(sortChar)
     i += 1
 
-print('Imported list: ', *aList, '\n')
+# print('Imported list: ', *aList, '\n')
 print('Sorted list: ', *sList)
