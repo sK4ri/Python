@@ -1,17 +1,26 @@
 import sys
 import csv
 
+# create list of anagram words from file:
 f = open(sys.argv[1], 'r')
 aList = list(csv.reader(f))
 f.close()
 
+# create list of anagram words' sorted letters:
 sList = []
+for elem in aList :
+    for char in elem :
+        sList.append(sorted(char))
 
+# check if there are matching between sorted words:
 i = 0
-for char in range(len(aList[i])) :
-    sortChar = sorted(aList[i])
-    sList.append(sortChar)
-    i += 1
-
-# print('Imported list: ', *aList, '\n')
-print('Sorted list: ', *sList)
+j = 1
+while j < len(aList) :
+    if sList[i] == sList[i + j] :
+        print(*aList[i], '\n', *aList[i + j], '\n', sep = '')
+        i += 1
+        j = i + 1
+    elif sList[i] != sList[i + j] :
+        j += 1
+    else :
+        break

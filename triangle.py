@@ -4,7 +4,7 @@ coordinates = []
 i = 0
 
 # number input validation :
-def inputNumber(coordinate) :
+def inputNumber(coordnate) :
   while True :
     try :
         userInput = int(input('Input coordinate number (-100 - 100): \n'))
