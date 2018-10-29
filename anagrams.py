@@ -16,11 +16,11 @@ for elem in aList :
 i = 0
 j = 1
 while j < len(aList) :
-    if sList[i] == sList[i + j] :
-        print(*aList[i], '\n', *aList[i + j], '\n', sep = '')
+    if sList[i] == sList[j] :
+        print(*aList[i], '\n', *aList[j], '\n', sep = '')
         i += 1
         j = i + 1
-    elif sList[i] != sList[i + j] :
+    elif sList[i] != sList[j] :
         j += 1
     else :
         break

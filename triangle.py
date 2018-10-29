@@ -41,4 +41,5 @@ sp = (side1 + side2 + side3)/2
 
 area = math.sqrt(sp*(sp - side1)*(sp - side2)*(sp - side3))
 
+print(side1, side2, side3)
 print('The area of the triangle is: ', '%.1f' % area) # there is always one decimal point

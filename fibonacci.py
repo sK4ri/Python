@@ -7,7 +7,7 @@ k = 0
 fib = 0
 
 while i < userNum :
-    print (str(i), str(fib).rjust(20), sep=':')  #Whitespaces aren'T dinamic yet!
+    print (str(i), str(fib).rjust(20), sep=':')  #Whitespaces aren't dinamic yet!
     fib = j + k
     j = k
     k = fib
