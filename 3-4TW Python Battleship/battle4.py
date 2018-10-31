@@ -9,7 +9,6 @@ def shooting(grid, row, column) :   #lövés
     elif grid[row][column] == "X" :
         grid[row][column] = "H"
         hit = 1
-
     return hit
 
 def ship_placement(grid, row, column, direction, length) :  #hajók lerakása
@@ -125,7 +124,8 @@ def placement_check(grid, row, column, direction, length):  #relatív hajóelhel
                             all_good = 0
     return all_good
     
-#ITT KEZDODIK-************-----------------------**************x*#*#x---x#*#*
+#ITT KEZDODIK##################################
+print('\nWelcome to DKP Battleship Game!\n')
 try:
     row = int(input('Size of the grid? \n'))
 except ValueError:
@@ -134,7 +134,7 @@ except ValueError:
 life1 = 0   #erteket kell kapniuk, mert kesobb csak +=el szerepel
 life2 = 0
 column = row
-turn = 100
+turn = 20
 
 #hajok kiosztasa    indexek jelolik a hajok hosszat(length), ertekek pedig a darabszamot
 ships5 = (0,0,2)
@@ -154,7 +154,7 @@ elif row == 8:
 elif row == 9: 
     ships = ships9
 
-#palyak generalasa      -kérdés, h praktikusabb-e deepcopyzni, v agy csak siman kulon osszerakni
+#palyak generalasa
 grid1 = [0] * row
 i = 0
 for i in range(row):
@@ -165,18 +165,17 @@ grid2 = copy.deepcopy(grid1)
 
 #hajo elhelyezes
 for i in range(len(ships)):
-    k = 1   # aktualis méretű hajó darabszamat koveto valtozo
+    k = 1   # aktualis meretu hajo darabszamat koveto valtozo
     while k <= ships[i]:
         length = i
         all_good = 0
         while all_good == 0 :
-                #P1
+#P1
             print("First player:")
             try :
                 row_ship = int(input("\nRow of ship? \n")) - 1
                 column_ship = int(input("\nColumn of ship? \n")) - 1
-                direction = int(input("\nDirection of ship? (1 is vertical, 0 is horizontal.)\n"))
-            
+                direction = int(input("\nDirection of ship? (1 is vertical, 0 is horizontal.)\n"))            
             except ValueError :
                 print("Please enter a valid parameter!\n")
                 continue
@@ -217,7 +216,7 @@ os.system('clear')
 while life1 > 0 and life2 > 0 and turn > 0 :   #itt kezdődik a csata
     print_all()
 #shooting
-    #P1
+#P1
     all_good = 0
     while all_good == 0:
         print("\nFirst player shoots:\n")
@@ -234,7 +233,7 @@ while life1 > 0 and life2 > 0 and turn > 0 :   #itt kezdődik a csata
 
         os.system('clear')
         print_all()
-    #P2
+#P2
     all_good = 0
     while all_good == 0:
         print("\nSecond player shoots:\n")
