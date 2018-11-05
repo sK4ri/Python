@@ -11,6 +11,7 @@ def shooting(grid, row, column) :   #lövés
         hit = 1
     return hit
 
+
 def ship_placement(grid, row, column, direction, length) :  #hajók lerakása
     k = 0
     if direction == 1 :    
@@ -134,7 +135,7 @@ except ValueError:
 life1 = 0   #erteket kell kapniuk, mert kesobb csak +=el szerepel
 life2 = 0
 column = row
-turn = 20
+TURN = 20
 
 #hajok kiosztasa    indexek jelolik a hajok hosszat(length), ertekek pedig a darabszamot
 ships5 = (0,0,2)
