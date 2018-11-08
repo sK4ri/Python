@@ -1,10 +1,10 @@
 import sys
 
-if sys.argv[1] == '--list' :
-    with open('ideabank.txt') as f :
+if sys.argv[1] == '--list':
+    with open('ideabank.txt') as f:
         print(f.read())
 
-else:    
+else:
     file = open('ideabank.txt', 'a')
     ideaNum = sum(1 for line in open('ideabank.txt') if line.rstrip())
     ideaNum = (ideaNum)
@@ -14,5 +14,5 @@ else:
     file.write('. ')
     file.write(str(askIdea))
     file.close()
-    with open('ideabank.txt') as f :
+    with open('ideabank.txt') as f:
         print(f.read())
