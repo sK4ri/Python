@@ -1,33 +1,36 @@
-# total = 0
-# for number in range(1, 10 + 1):
-#     total += number
+total = 0
+for number in range(1, 10 + 1):
+    total += number
 
-# print(total)
+print(total)
 
 # ##############
 
-# print(sum(range(1, 10 + 1)))
+print(sum(range(1, 10 + 1)))
 
-# ############
-# factorial = 1
-# num = int(input("Type in a number:\n"))
+############
+factorial = 1
+num = int(input("Type in a number:\n"))
 
-# for i in range(1, num + 1):
-#     factorial *= i
-# print(factorial)
+for i in range(1, num + 1):
+    factorial *= i
+print(factorial)
 
 ##############
-# sum = 0
-# prd = 1
 
-# for i in range(1, 10 + 1):
-#     x = float(input("Type in the %d. number: " % i))
-#     sum += x
-#     prd *= x 
+sum = 0
+prd = 1
 
-# avg = sum/10
+for i in range(1, 10 + 1):
+    x = float(input("Type in the %d. number: " % i))
+    sum += x
+    prd *= x 
 
-# print("Sum = %g\nAverage = %g\nProduct = %g" % (sum, avg, prd))
+avg = sum/10
+
+print("Sum = %g\nAverage = %g\nProduct = %g" % (sum, avg, prd))
+
+########################
 
 sum = 0
 prd = 1
