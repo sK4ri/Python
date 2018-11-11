@@ -17,3 +17,5 @@ for months in range(12):
 
 calendar[Jul][W2].append("Get a degree!")
 print(calendar[Jul][W2])
+
+# gave up here
