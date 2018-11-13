@@ -5,7 +5,7 @@ os.system('clear')
 
 def shooting(grid, row, column):  # lövés
     hit = 0
-    if grid[row][column] == 0:
+    if grid[row][column] == "0":
         grid[row][column] = "#"
     elif grid[row][column] == "X":
         grid[row][column] = "H"
@@ -131,18 +131,20 @@ def placement_check(grid, row, column, direction, length):
 
 # ITT KEZDODIK##################################
 print('\nWelcome to DKP Battleship Game!\n')
-try:
-    row = int(input('Size of the grid? \n'))
-except ValueError:
-    print("Please enter a valid parameter!\n")
+row = 0
+while 5 > row or row > 9:
+    try:
+        row = int(input('Size of the grid? (5-9) \n'))
+        print("\nThe grid must be between 5 and 9!")
+    except ValueError:
+        print("Please enter a valid parameter!\n")
 
-life1 = 0  # erteket kell kapniuk, mert kesobb csak +=el szerepel
+life1 = 0  # erteket kell kapniuk, mert kesobb csak +=vel szerepel
 life2 = 0
 column = row
 turn = 20
 
-# hajok kiosztasa    indexek jelolik a hajok hosszat(length), ertekek
-# pedig a darabszamot
+# hajok kiosztasa. Indexek jelolik a hajok hosszat(length), ertekek pedig a darabszamot
 ships5 = (0, 0, 2)
 ships6 = (0, 0, 2, 1)
 ships7 = (0, 0, 2, 2)
@@ -162,12 +164,9 @@ elif row == 9:
 
 # palyak generalasa
 grid1 = [0] * row
-i = 0
 for i in range(row):
     grid1[i] = [0] * column
 grid2 = copy.deepcopy(grid1)
-
-##########################################
 
 # hajo elhelyezes
 for i in range(len(ships)): # P1
@@ -189,7 +188,7 @@ for i in range(len(ships)): # P1
             all_good = placement_check(grid1, row_ship, column_ship, direction, length)
             if all_good == 0:
                 continue
-            life1 += ship_placement(grid1, row_ship, column_ship, direction, length)       
+            life1 += ship_placement(grid1, row_ship, column_ship, direction, length)
 os.system('clear')
 for i in range(len(ships)): # P2
     for k in range(ships[i]):
@@ -228,7 +227,6 @@ while life1 > 0 and life2 > 0 and turn > 0:  # itt kezdődik a csata
         if all_good == 0:
             continue
         life2 = life2 - shooting(grid1, row_ship, column_ship)
-
         os.system('clear')
         print_all()
     all_good = 0 # P2
