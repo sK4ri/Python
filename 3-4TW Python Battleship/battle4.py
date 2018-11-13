@@ -14,15 +14,12 @@ def shooting(grid, row, column):  # lövés
 
 
 def ship_placement(grid, row, column, direction, length):  # hajók lerakása
-    k = 0
     if direction == 1:
-        while k < length:
+        for k in range(length):
             grid[row + k][column] = "X"
-            k += 1
     elif direction == 0:
-        while k < length:
+        for k in range(length):
             grid[row][column + k] = "X"
-            k += 1
     grid_preview(grid)
     return length
 
@@ -46,15 +43,13 @@ def grid_preview(grid):  # mindent felfedo palya
 
 def out_of_grid(grid, row, column, direction, length):  # ne lehessen palyan kivulre rakni
     if direction == 1:
-        if row < 0 or row > len(
-                grid) or row + length > len(grid) or column < 0 or column > len(grid[0]):
+        if row < 0 or row > len(grid) or row + length > len(grid) or column < 0 or column > len(grid[0]):
             all_good = 0
             print("Please enter valid parameters!\n")
         else:
             all_good = 1
     elif direction == 0:
-        if row < 0 or row > len(grid) or column < 0 or column > len(
-                grid[0]) or column + length > len(grid[0]):
+        if row < 0 or row > len(grid) or column < 0 or column > len(grid[0]) or column + length > len(grid[0]):
             all_good = 0
             print("Please enter valid parameters!\n")
         else:
@@ -66,7 +61,6 @@ def out_of_grid(grid, row, column, direction, length):  # ne lehessen palyan kiv
 
 
 def print_all():  # játékkép printelése
-
     print("\nFirst players life:", life1)
     print("Second players life:", life2)
     print("Turns left:", turn)
@@ -135,7 +129,7 @@ def placement_check(grid, row, column, direction, length):
     return all_good
 
 
-#ITT KEZDODIK##################################
+# ITT KEZDODIK##################################
 print('\nWelcome to DKP Battleship Game!\n')
 try:
     row = int(input('Size of the grid? \n'))
@@ -145,7 +139,7 @@ except ValueError:
 life1 = 0  # erteket kell kapniuk, mert kesobb csak +=el szerepel
 life2 = 0
 column = row
-TURN = 20
+turn = 20
 
 # hajok kiosztasa    indexek jelolik a hajok hosszat(length), ertekek
 # pedig a darabszamot
@@ -176,38 +170,29 @@ grid2 = copy.deepcopy(grid1)
 ##########################################
 
 # hajo elhelyezes
-for i in range(len(ships)):
-    k = 1   # aktualis meretu hajo darabszamat koveto valtozo
-    while k <= ships[i]:
+for i in range(len(ships)): # P1
+    for k in range(ships[i]):
         length = i
         all_good = 0
-        while all_good == 0:
-            # P1
+        while all_good == 0:         
             print("First player:")
             try:
                 row_ship = int(input("\nRow of ship? \n")) - 1
                 column_ship = int(input("\nColumn of ship? \n")) - 1
-                direction = int(
-                    input("\nDirection of ship? (1 is vertical, 0 is horizontal.)\n"))
+                direction = int(input("\nDirection of ship? (1 is vertical, 0 is horizontal.)\n"))
             except ValueError:
                 print("Please enter a valid parameter!\n")
                 continue
-            all_good = out_of_grid(
-                grid1, row_ship, column_ship, direction, length)
+            all_good = out_of_grid(grid1, row_ship, column_ship, direction, length)
             if all_good == 0:
                 continue
-            all_good = placement_check(
-                grid1, row_ship, column_ship, direction, length)
+            all_good = placement_check(grid1, row_ship, column_ship, direction, length)
             if all_good == 0:
                 continue
-            life1 += ship_placement(grid1, row_ship,
-                                    column_ship, direction, length)
-        k += 1
-# P2
+            life1 += ship_placement(grid1, row_ship, column_ship, direction, length)       
 os.system('clear')
-for i in range(len(ships)):
-    k = 1
-    while k <= ships[i]:
+for i in range(len(ships)): # P2
+    for k in range(ships[i]):
         length = i
         all_good = 0
         while all_good == 0:
@@ -219,24 +204,18 @@ for i in range(len(ships)):
             except ValueError:
                 print("Please enter a valid parameter!\n")
                 continue
-            all_good = out_of_grid(
-                grid2, row_ship, column_ship, direction, length)
+            all_good = out_of_grid(grid2, row_ship, column_ship, direction, length)
             if all_good == 0:
                 continue
-            all_good = placement_check(
-                grid2, row_ship, column_ship, direction, length)
+            all_good = placement_check(grid2, row_ship, column_ship, direction, length)
             if all_good == 0:
                 continue
-            life2 += ship_placement(grid2, row_ship,
-                                    column_ship, direction, length)
-        k += 1
+            life2 += ship_placement(grid2, row_ship, column_ship, direction, length)
 
 os.system('clear')
 while life1 > 0 and life2 > 0 and turn > 0:  # itt kezdődik a csata
     print_all()
-# shooting
-# P1
-    all_good = 0
+    all_good = 0 # P1
     while all_good == 0:
         print("\nFirst player shoots:\n")
         try:
@@ -252,8 +231,7 @@ while life1 > 0 and life2 > 0 and turn > 0:  # itt kezdődik a csata
 
         os.system('clear')
         print_all()
-# P2
-    all_good = 0
+    all_good = 0 # P2
     while all_good == 0:
         print("\nSecond player shoots:\n")
         try:
@@ -266,7 +244,6 @@ while life1 > 0 and life2 > 0 and turn > 0:  # itt kezdődik a csata
         if all_good == 0:
             continue
         life1 = life1 - shooting(grid2, row_ship, column_ship)
-
     os.system('clear')
     turn -= 1
 
@@ -276,4 +253,4 @@ if life2 == 0:
 elif life1 == 0:
     print("\nSecond player wins!")
 elif turn == 0:
-    print("\nGame fucking over, mate!")
+    print("\nGame over, mate!")
