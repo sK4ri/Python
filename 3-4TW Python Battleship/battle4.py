@@ -135,7 +135,8 @@ row = 0
 while 5 > row or row > 9:
     try:
         row = int(input('Size of the grid? (5-9) \n'))
-        print("\nThe grid must be between 5 and 9!")
+        if 5 > row or row > 9:
+            print("\nThe grid must be between 5 and 9!")
     except ValueError:
         print("Please enter a valid parameter!\n")
 
