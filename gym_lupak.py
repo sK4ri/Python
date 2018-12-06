@@ -1,4 +1,4 @@
-questions = ['are you over 14?','Wanna use the sauna?','Are you a student?','Are you a Male?']
+questions = ['are you over 14?', 'Wanna use the sauna?', 'Are you a student?', 'Are you a Male?']
 
 while True:
     o14 = input(questions[0])
@@ -39,7 +39,7 @@ while True:
 #         questions = ['Are you over 14?\n','Want to use sauna?\n','Are you a student?\n','Are you Male?\n']
 # answers = []
 
-# def question() :      
+# def question() :
 #     answer = input(questions[i])
 #     if answer == 'yes' :
 #         answers.append('1')
@@ -50,4 +50,3 @@ while True:
 
 # for i in range(len(questions)) :
 #     question()
-

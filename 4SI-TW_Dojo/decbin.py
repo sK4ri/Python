@@ -1,5 +1,6 @@
 from math import pow
 
+
 def num_sys_conv(num_sys):
     lst = num_sys.split()
     num = int(lst[0])

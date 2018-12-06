@@ -1,30 +1,32 @@
 numbersList = []
 
-while True :
+while True:
     number = input('Enter the number (press x to finish): ')
-    if number != 'x' :
+    if number != 'x':
         numbersList.append(int(number))
-    else :
+    else:
         break
 
 print(numbersList)
 
-def sort_number(numbersList) :
+
+def sort_number(numbersList):
     n = len(numbersList)
     i = 1
-    while i < n :
-        j = 0 
-        while j <= n - 2 :
-            if numbersList[j] > numbersList[j + 1] :
+    while i < n:
+        j = 0
+        while j <= n - 2:
+            if numbersList[j] > numbersList[j + 1]:
                 temp = numbersList[j + 1]
                 numbersList[j + 1] = numbersList[j]
                 numbersList[j] = temp
                 j += 1
-            else :
+            else:
                 j += 1
-        else :
+        else:
             i += 1
-    else :
+    else:
         print(numbersList)
+
 
 sort_number(numbersList)

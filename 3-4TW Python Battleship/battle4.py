@@ -170,11 +170,11 @@ for i in range(row):
 grid2 = copy.deepcopy(grid1)
 
 # hajo elhelyezes
-for i in range(len(ships)): # P1
+for i in range(len(ships)):  # P1
     for k in range(ships[i]):
         length = i
         all_good = 0
-        while all_good == 0:         
+        while all_good == 0:
             print("First player:")
             try:
                 row_ship = int(input("\nRow of ship? \n")) - 1
@@ -191,7 +191,7 @@ for i in range(len(ships)): # P1
                 continue
             life1 += ship_placement(grid1, row_ship, column_ship, direction, length)
 os.system('clear')
-for i in range(len(ships)): # P2
+for i in range(len(ships)):  # P2
     for k in range(ships[i]):
         length = i
         all_good = 0
@@ -215,7 +215,7 @@ for i in range(len(ships)): # P2
 os.system('clear')
 while life1 > 0 and life2 > 0 and turn > 0:  # itt kezdődik a csata
     print_all()
-    all_good = 0 # P1
+    all_good = 0  # P1
     while all_good == 0:
         print("\nFirst player shoots:\n")
         try:
@@ -230,7 +230,7 @@ while life1 > 0 and life2 > 0 and turn > 0:  # itt kezdődik a csata
         life2 = life2 - shooting(grid1, row_ship, column_ship)
         os.system('clear')
         print_all()
-    all_good = 0 # P2
+    all_good = 0  # P2
     while all_good == 0:
         print("\nSecond player shoots:\n")
         try:

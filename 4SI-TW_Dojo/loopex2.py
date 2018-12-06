@@ -24,7 +24,7 @@ prd = 1
 for i in range(1, 10 + 1):
     x = float(input("Type in the %d. number: " % i))
     sum += x
-    prd *= x 
+    prd *= x
 
 avg = sum/10
 

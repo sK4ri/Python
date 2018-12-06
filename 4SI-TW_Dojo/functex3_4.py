@@ -1,16 +1,3 @@
-# def rec_funct(a):
-#     try:
-#         factorial = 1
-#         while a > 0:
-#             factorial *= a
-#             a -= 1
-#         return factorial
-#     except TypeError:
-#         return None
-
-# print(rec_funct(4))
-
-
 def factorial(n):
     ni = int(n)
 
@@ -21,5 +8,6 @@ def factorial(n):
         return 1
 
     return ni * factorial(ni - 1)
+
 
 print(factorial(4))

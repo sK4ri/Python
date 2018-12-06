@@ -11,12 +11,12 @@ grid_boat = [0] * row
 life = boat4
 turn = 5
 
-#hajo placement ??????????????????
+# hajo placement ??????????????????
 i = 0
 for i in range(row):
     grid_boat[i] = [0] * column
 
-#hajo fuggoleges es vizszintes elhelyezese
+# hajo fuggoleges es vizszintes elhelyezese
 z = 0
 i = 0
 k = 0
@@ -38,12 +38,12 @@ if boat3 == 1:
                 i += 1
         i = 0
         z += 1
-elif boat3 ==0:
-    for x in range(len(grid_boat)):  
+elif boat3 == 0:
+    for x in range(len(grid_boat)):
         i = 0
         if boat1 == z:
             for y in range(len(grid_boat[i])):
-                
+
                 if boat2 == i and boat3 == 0:
                     while k < boat4:
                         grid_boat[z][i] = "X"
@@ -56,16 +56,16 @@ elif boat3 ==0:
                 i += 1
             z += 1
         print()
-#hajo elhelyezes idaig
+# hajo elhelyezes idaig
 
 print(grid_boat)
 
-#boat printeles
+# boat printeles
 z = 0
 for x in range(len(grid_boat)):
     i = 0
     for y in range(len(grid_boat[i])):
-        print(grid_boat[z][i], end = " ")
+        print(grid_boat[z][i], end=" ")
         i += 1
     z += 1
     print()
@@ -76,7 +76,7 @@ while life > 0 or turn > 0:
     shot1 = int(input('Row of shooting? \n'))
     shot2 = int(input('Column of shooting? \n'))
 
-    #fogofwar pálya
+    # fogofwar pálya
     # for i in range(row):
     #     grid[i] = [0] * column
     # z = 0
@@ -89,10 +89,10 @@ while life > 0 or turn > 0:
     #     print()
     # print(grid)
 
-    #shooting
+    # shooting
     z = 0
-    i = 0 
-    for x in range(len(grid_boat)):   
+    i = 0
+    for x in range(len(grid_boat)):
         if shot1 == z:
             for y in range(len(grid_boat[i])):
                 if shot2 == i:
@@ -101,34 +101,34 @@ while life > 0 or turn > 0:
                         i += 1
                     else:
                         grid_boat[z][i] = "H"
-                        i += 1 
+                        i += 1
                         life -= 1
                 i += 1
         z += 1
 
     print(grid_boat)
 
-    #boat printeles
+    # boat printeles
     z = 0
     for x in range(len(grid_boat)):
         i = 0
         for y in range(len(grid_boat[i])):
-            print(grid_boat[z][i], end = " ")
+            print(grid_boat[z][i], end=" ")
             i += 1
         z += 1
         print()
 
-    #fogofwar akco utan
+    # fogofwar akco utan
     print()
     z = 0
     for x in range(len(grid_boat)):
         i = 0
         for y in range(len(grid_boat[i])):
             if grid_boat[z][i] == "#" or grid_boat[z][i] == "H":
-                print(grid_boat[z][i], end = " ")
+                print(grid_boat[z][i], end=" ")
                 i += 1
             else:
-                print(0, end = " ")
+                print(0, end=" ")
                 i += 1
         z += 1
         print()
